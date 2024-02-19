@@ -1,0 +1,12 @@
+factors:
+  - desc: playerCount determines the number of Players are in a Game.
+    name: playerCount
+    values:
+      - value: 1
+ 
+treatments:
+  - desc: "Single-player Game"
+    factors:
+      playerCount: 1
+    name: Solo
+ 

@@ -1,0 +1,83 @@
+styles.css
+
+/* 文本样式 */
+ 
+/* 用于左对齐文本的样式 */
+.text-left {
+    text-align: left;
+    
+    width: 100%; /* 设置宽度以保证对齐生效 */
+  }
+  
+  /* 容器样式 */
+  .container-center {
+    display: flex;
+    flex-direction: column;
+   
+    width: 100%; /* 容器宽度100% */
+    max-width: 800px; /* 调整最大宽度 */
+    margin: auto; /* 水平居中 */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+ 
+    padding: 20px;
+    width: 100%; /* 容器宽度 */
+    max-width: 1200px; /* 最大宽度，根据需要调整 */
+    margin: auto; /* 水平居中 */
+  }
+  
+  .relationship-section {
+    width: 100%; /* 使关系部分占满可用宽度 */
+    max-width: 1200px; /* 表格最大宽度，根据需要调整 */
+    margin: 20px auto; /* 上下保留空间，水平居中 */
+  }
+  
+  .table {
+    width: 100%; /* 表格宽度占满容器宽度 */
+    max-width: 1600px; /* 表格最大宽度，根据需要调整 */
+    margin: 0 auto; /* 上下保持当前值，左右auto实现水平居中 */
+    border-collapse: collapse; /* 边框合并 */
+  }
+  
+   
+
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* 按钮样式 */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .button-spacing {
+    margin-right: 10px; /* 或者你想要的任何间隔大小 */
+  }
+  
+  .button-container {
+    text-align: center; /* 按钮居中 */
+    width: 100%; /* 宽度100% */
+    margin-top: 20px; /* 按钮上方间隔 */
+  }
+
+  .table th, .table td {
+    border: 1px solid #ddd; /* 设置单元格边框 */
+    /* 其他样式 */
+  }
+  
