@@ -4,19 +4,45 @@
   box-sizing: border-box; /* 这可以帮助控制元素的大小 */
 }
 
+.centered-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* 或者任何你需要的值 */
+}
+
+.blue-button {
+  background-color: #007bff; /* 蓝色背景 */
+  color: white; /* 白色文字 */
+  border: 2px solid #007bff; /* 蓝色边框 */
+  padding: 10px 20px; /* 内边距 */
+  text-align: center; /* 文字居中 */
+  text-decoration: none; /* 无文本装饰 */
+  display: inline-block; /* 行内块显示 */
+  font-size: 16px; /* 字体大小 */
+  border-radius: 5px; /* 边框圆角 */
+  cursor: pointer; /* 鼠标光标变成手指形状 */
+}
+
+.blue-button:hover {
+  background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+  border: 2px solid #0056b3; /* 鼠标悬停时的边框颜色 */
+}
 
 .introduction-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px; /* 顶部空白 */
+  padding-right: 20px; /* 右侧内边距 */
+  padding-bottom: 50px; /* 底部内边距 */
+  padding-left: 20px; /* 左侧内边距 */
+  max-width: 800px; /* 控制最大宽度 */
+  margin: auto; /* 水平居中 */
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    max-width: 800px; /* 控制最大宽度 */
-    margin: auto; /* 水平居中 */
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
   
   .introduction-header {
     font-size: 1.5rem;

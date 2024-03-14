@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { usePlayer } from "@empirica/core/player/classic/react";
+import { usePlayer, useGame } from "@empirica/core/player/classic/react";
 import { Button } from "../components/Button";
 import ladderImage from './candy.png';
 
 export function Choice() {
+  const game = useGame(); // 使用 useGame 钩子获取游戏上下文
   const player = usePlayer();
   const estimates = player.round.get("estimates"); // 从上一个组件获取猜测的糖果数
 
@@ -25,6 +26,15 @@ export function Choice() {
 
     player.stage.set("submit", true);
   };
+
+  // 从游戏的 treatment 中获取指令文本
+  const treatment = game.get("treatment");
+ 
+  const {instructionText2} = treatment;
+  const {submitButtonLabel2} = treatment;
+  const {instructionPage} = treatment;
+  
+
 
   const imagesRowStyle = {
     display: 'flex',
@@ -53,11 +63,18 @@ export function Choice() {
     textAlign: 'right', // 使按钮靠右对齐
   };
 
+
+
+
+
   return (
     <div>
-      <h2>Please determine which container has the largest number of candies. Please indicate your decision by clicking the button below the image.</h2>
+      {/* {instructionPage}  */}
+      {instructionText2}
+<br />
+      {/* <h2>Please determine which container has the largest number of candies. Please indicate your decision by clicking the button below the image.</h2>
+      <br /> */}
       <br />
-      
       <div style={imagesRowStyle}>
         {estimates.map((estimate, index) => (
           <div key={index} style={itemStyle}>
@@ -73,7 +90,7 @@ export function Choice() {
         ))}
       </div>
       <div style={buttonContainerStyle}>
-        <Button handleClick={handleSubmit}>Submit Choice & Continue</Button>
+        <Button handleClick={handleSubmit}>{submitButtonLabel2}</Button>
       </div>
     </div>
   );

@@ -6,12 +6,11 @@ Empirica.onGameStart(({ game }) => {
     name: "Candies estimation",
     task: "jellybeans",
   });
-  round.addStage({ name: "Introduction", duration: 3000 });
+  //round.addStage({ name: "Introduction", duration: 3000 });
   round.addStage({ name: "CandyCount", duration: 3000 });
   round.addStage({ name: "Choice", duration: 1200 });
   round.addStage({ name: "Result", duration: 1200 });
 
- 
 });
 
 Empirica.onRoundStart(({ round }) => {});

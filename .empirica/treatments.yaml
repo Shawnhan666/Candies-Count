@@ -1,12 +1,57 @@
 factors:
-  - desc: playerCount determines the number of Players are in a Game.
-    name: playerCount
-    values:
-      - value: 1
- 
+    - name: submitButtonLabel2
+      desc: Label for the submit button 2.
+      values:
+        - value: Submit & Continue
+    - name: playerCount
+      desc: Determines the number of Players in a Game.
+      values:
+        - value: 1
+    - name: minEstimate
+      desc: Minimum estimate value.
+      values:
+        - value: 5
+    - name: maxEstimate
+      desc: Maximum estimate value.
+      values:
+        - value: 1000
+    - name: instructionText1
+      desc: This text can be edit  on the admin page. The instruction text displayed on the CandyCount component.
+      values:
+        - value: Hi!!!! For each image below, please estimate the number of candies in the container.
+        - value: For each image below, please estimate the number of candies in the container.
+    - name: instructionText2
+      desc: This text can be edit  on the admin page. The instruction text displayed on the Choice component.
+      values:
+        - value: Hello!! Please determine which container has the largest number of candies. Please indicate your decision by clicking the button below the image.
+        - value: Please determine which container has the largest number of candies. Please indicate your decision by clicking the button below the image.
+    - name: submitButtonLabel1
+      desc: Label for the submit button 1.
+      values:
+        - value: Continue
+    - name: instructionPage1
+      desc: 1st sentence, Instructions displayed before the CandyCount game starts.
+      values:
+        - value: On the next page, you will see five images, each showing candies in a container.
+    - name: instructionPage2
+      desc: 2nd sentence, Instructions displayed before the CandyCount game starts.
+      values:
+        - value: Please enter your estimate of how many candies are in the container for each image in the box provided below that image.
+    - name: instructionPage3
+      desc: 3rd sentence, Instructions displayed before the CandyCount game starts.
+      values:
+        - value: Remember, the more accurate your answers, the more money you will win!
 treatments:
-  - desc: "Single-player Game"
-    factors:
-      playerCount: 1
-    name: Solo
- 
+    - name: Solo
+      desc: Single-player Game with editable instructions.
+      factors:
+        instructionPage1: On the next page, you will see five images, each showing candies in a container.
+        instructionPage2: Please enter your estimate of how many candies are in the container for each image in the box provided below that image.
+        instructionPage3: Remember, the more accurate your answers, the more money you will win!
+        instructionText1: For each image below, please estimate the number of candies in the container.
+        instructionText2: Please determine which container has the largest number of candies. Please indicate your decision by clicking the button below the image.
+        maxEstimate: 1000
+        minEstimate: 5
+        playerCount: 1
+        submitButtonLabel1: Continue
+        submitButtonLabel2: Submit & Continue

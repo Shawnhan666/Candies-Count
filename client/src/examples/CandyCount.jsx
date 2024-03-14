@@ -1,6 +1,6 @@
 import {
  
-  usePlayer,
+  usePlayer, useGame
  
 } from "@empirica/core/player/classic/react";
 import React, { useState } from "react";
@@ -9,36 +9,52 @@ import ladderImage from './candy.png';
 
 
 export function CandyCount() {
+  const game = useGame(); // 使用 useGame 钩子获取游戏上下文
   const player = usePlayer();
   const [estimates, setEstimates] = useState(Array(5).fill(""));
+
+
+  const treatment = game.get("treatment");
+ 
+  const {instructionText1} = treatment;
+  const { minEstimate } = treatment
+  const { maxEstimate } = treatment
+  const {submitButtonLabel1} = treatment;
 
 
   const handleInputChange = (index, value) => {
     // 使用正则表达式确保值只包含数字
     if (/^\d*$/.test(value)) {
+    
       const newEstimates = [...estimates];
       newEstimates[index] = value;
       setEstimates(newEstimates);
     }
   };
   
+
+
     // 添加用于按钮对齐的样式
     const buttonContainerStyle = {
       textAlign: 'right', // 使按钮靠右对齐
     };
 
+    const handleSubmit = () => {
+      const validEstimates = estimates.every(estimate => 
+        !isNaN(estimate) && estimate !== "" && Number(estimate) >= minEstimate && Number(estimate) <= maxEstimate
+      );
+    
+      if (!validEstimates) {
+        alert(`All estimates must be numbers between ${minEstimate} and ${maxEstimate}.`);
+        return;
+      }
+    
+      player.round.set("estimates", estimates.map(Number));
+      player.stage.set("submit", true);
+    };
+    
 
-  const handleSubmit = () => {
-    const validEstimates = estimates.every(estimate => estimate !== "" && !isNaN(estimate) && Number(estimate) >= 0);
 
-    if (!validEstimates) {
-      alert("All estimates must be numbers greater than or equal to 0.");
-      return;
-    }
-
-    player.round.set("estimates", estimates.map(Number));
-    player.stage.set("submit", true);
-  };
   const imagesRowStyle = {
     display: 'flex',
     justifyContent: 'space-around',
@@ -60,9 +76,13 @@ export function CandyCount() {
   };
 
 
+
+
   return (
     <div >
-    <h2>For each image below, please estimate the number of candies in the container.</h2>
+      {instructionText1}
+    {/* <h2>For each image below, please estimate the number of candies in the container.</h2> */}
+    <br />
     <br />
     <div style={imagesRowStyle}>
       {estimates.map((estimate, index) => (
@@ -74,7 +94,9 @@ export function CandyCount() {
             onChange={(e) => handleInputChange(index, e.target.value)}
             placeholder="Estimate"
             style={inputStyle}
-            min="0"
+            
+            // min={minEstimate}
+            // max={maxEstimate}
           />
         </div>
       ))}
@@ -82,8 +104,10 @@ export function CandyCount() {
 
   
       <div style={buttonContainerStyle}>
-        <Button handleClick={handleSubmit}>Submit Estimates & Continue</Button>
+        <Button handleClick={handleSubmit}>{submitButtonLabel1}</Button>
       </div>
   </div>
   );
 }
+
+ 
